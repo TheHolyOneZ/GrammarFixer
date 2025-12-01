@@ -14,7 +14,9 @@ An intelligent, AI-powered grammar correction tool for Windows that fixes your t
 
 
 >>
-> .EXE (ready application can be found in the **"releases"** in the GitHub here)
+> .EXE (ready application can be found in the **"releases"** in the GitHub here) - https://github.com/TheHolyOneZ/GrammarFixer/releases/tag/GrammarFixer_1.0.0
+
+
 > Images of the application can be found in the "images/" folder
 >>
 
