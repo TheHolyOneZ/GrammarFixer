@@ -7,6 +7,19 @@
 
 An intelligent, AI-powered grammar correction tool for Windows that fixes your text with a simple hotkey. Powered by Google's Gemini 2.5 Flash Lite API.
 
+
+
+
+
+
+
+>>
+> .EXE (ready application can be found in the release in the GitHub here)
+> Images of the application can be found in the "images/" folder
+>>
+
+
+
 ## ✨ Features
 
 ### Core Functionality
