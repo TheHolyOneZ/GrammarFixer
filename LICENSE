@@ -1,0 +1,77 @@
+MIT License with Additional Terms
+
+Copyright (c) 2025 TheHolyOneZ
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+ADDITIONAL TERMS:
+
+1. ATTRIBUTION REQUIREMENT
+   The name "TheHolyOneZ" must NOT be removed from:
+   - The application user interface
+   - This LICENSE file
+   - Any derivative works or distributions
+   - Documentation and README files
+
+2. CREDIT PRESERVATION
+   All derivative works must maintain clear attribution to the original author
+   "TheHolyOneZ" in a visible location within the application and documentation.
+
+3. MODIFICATION NOTICE
+   If you modify this software, you must clearly indicate that changes were made
+   and that the modified version is not the original work of TheHolyOneZ.
+
+4. UI ATTRIBUTION
+   The "About" section or equivalent in the user interface must display:
+   "© 2025 TheHolyOneZ" or "Created by TheHolyOneZ"
+
+5. LICENSE PROPAGATION
+   These additional terms must be included in all copies or substantial portions
+   of the Software, and in any derivative works.
+
+DISCLAIMER:
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+THIRD-PARTY SERVICES:
+
+This software uses the Google Gemini API, which is subject to Google's terms
+of service and privacy policy. Users must obtain their own API key and agree
+to Google's terms:
+- https://ai.google.dev/terms
+- https://policies.google.com/privacy
+
+API USAGE:
+
+The software transmits text data to Google's Gemini API for processing.
+Users are responsible for:
+- Ensuring they have the right to transmit their text data
+- Complying with Google's API usage policies
+- Managing their own API costs and rate limits
+- Understanding that text is sent to external servers for processing
+
+DATA PRIVACY:
+
+- API keys are encrypted and stored locally
+- No user data is collected by the application itself
+- Text processing is performed by Google's Gemini API
+- Users should review Google's privacy policy for data handling details
+
+CONTACT:
+
+For questions regarding this license, please contact:
+GitHub: https://github.com/TheHolyOneZ

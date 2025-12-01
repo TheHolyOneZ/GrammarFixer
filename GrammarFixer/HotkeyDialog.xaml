@@ -1,0 +1,75 @@
+<Window x:Class="GrammarFixer.HotkeyDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Change Hotkey" 
+        Height="250" 
+        Width="400"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        KeyDown="Window_KeyDown">
+    
+    <Border CornerRadius="12" Background="#14141E">
+        <Border.Effect>
+            <DropShadowEffect Color="Black" Opacity="0.5" BlurRadius="20" ShadowDepth="0"/>
+        </Border.Effect>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Background="#1E1E2D" CornerRadius="12,12,0,0">
+                <TextBlock Text="⌨️ Change Hotkey" 
+                         Foreground="White" 
+                         FontSize="16" 
+                         FontWeight="SemiBold"
+                         VerticalAlignment="Center"
+                         Margin="20,0"/>
+            </Border>
+
+            <StackPanel Grid.Row="1" Margin="25" VerticalAlignment="Center">
+                <TextBlock Text="Press any key combination..." 
+                         Foreground="#B4B4BE" 
+                         FontSize="13"
+                         HorizontalAlignment="Center"
+                         Margin="0,0,0,20"/>
+                
+                <Border Background="#1E1E2D" 
+                        CornerRadius="8" 
+                        Padding="15"
+                        BorderBrush="#3C3C50"
+                        BorderThickness="2">
+                    <TextBlock x:Name="HotkeyDisplay" 
+                             Text="Waiting..." 
+                             Foreground="#64C8FA" 
+                             FontSize="18"
+                             FontWeight="SemiBold"
+                             HorizontalAlignment="Center"/>
+                </Border>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                    <Button x:Name="SaveButton"
+                          Content="✓ Save" 
+                          Style="{StaticResource ModernButton}"
+                          Width="100"
+                          Height="35"
+                          Margin="0,0,10,0"
+                          Click="SaveButton_Click"
+                          IsEnabled="False"/>
+                    
+                    <Button x:Name="CancelButton"
+                          Content="✕ Cancel" 
+                          Style="{StaticResource ModernButton}"
+                          Background="#2D2D42"
+                          Width="100"
+                          Height="35"
+                          Click="CancelButton_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
