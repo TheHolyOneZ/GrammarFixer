@@ -109,11 +109,10 @@ Each persona applies different writing styles while fixing grammar:
 ### Option 1: Download Pre-built Release (Recommended)
 
 1. Go to the [Releases](https://github.com/TheHolyOneZ/GrammarFixer/releases) page
-2. Download the latest `GrammarFixer.zip`
-3. Extract to your preferred location (e.g., `C:\Program Files\GrammarFixer`)
-4. Run `GrammarFixer.exe`
-5. Enter your Gemini API key in settings
-6. Start fixing grammar with your hotkey!
+2. Download the latest `GrammarFixer.exe`
+3. Run `GrammarFixer.exe`
+4. Enter your Gemini API key in settings
+5. Start fixing grammar with your hotkey!
 
 ### Option 2: Build from Source
 
