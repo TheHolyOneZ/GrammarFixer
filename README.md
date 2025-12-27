@@ -654,26 +654,6 @@ This project is licensed under the MIT License with additional terms - see the [
 - **Files**: 20+
 - **Dependencies**: Minimal (System.Text.Json)
 
-## 🗺️ Roadmap
-
-### Version 1.1 (Planned)
-- [ ] Multiple language support (Spanish, French, German)
-- [ ] Light theme option
-- [ ] Portable mode (no installation)
-- [ ] Export settings to file
-
-### Version 1.2 (Future)
-- [ ] Custom prompt templates
-- [ ] Batch text processing
-- [ ] Markdown support
-- [ ] Integration with MS Office
-
-### Version 2.0 (Long-term)
-- [ ] Plugin system
-- [ ] Multiple AI provider support
-- [ ] Team/organization features
-- [ ] Advanced analytics
-
 ## 📮 Support & Feedback
 
 ### Getting Help
