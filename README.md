@@ -82,10 +82,21 @@ details>
 ## 📸 Visuals
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/TheHolyOneZ/GrammarFixer/main/images/Screenshot%202025-12-01%20182947.png" alt="Grammar Fixer Advanced View" width="400"/>
-  <p><em>Advanced View</em></p>
-  <img src="https://raw.githubusercontent.com/TheHolyOneZ/GrammarFixer/main/images/Screenshot%202025-12-01%20183013.png" alt="Grammar Fixer Compact View" width="400"/>
-  <p><em>Compact View</em></p>
+  <h2>Main Views</h2>
+  <img src="/images/MainDefault.png" alt="Grammar Fixer Main Default View" width="450"/>
+  <p><em>Default Application View</em></p>
+  <img src="/images/CompactView.png" alt="Grammar Fixer Compact View" width="450"/>
+  <p><em>Compact Application View</em></p>
+  
+  <h2>Customization Dialogs</h2>
+  <img src="/images/CustomPersona.png" alt="Grammar Fixer Custom Persona Dialog" width="450"/>
+  <p><em>Custom Persona Management</em></p>
+  <img src="/images/CustomLanguage.png" alt="Grammar Fixer Custom Language Dialog" width="450"/>
+  <p><em>Custom Language Management</em></p>
+
+  <h2>Debug Console</h2>
+  <img src="/images/DebugConsole.png" alt="Grammar Fixer Debug Console" width="450"/>
+  <p><em>Debug Window for Troubleshooting</em></p>
 </div>
 
 ---
@@ -250,4 +261,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
   <p><strong>Made with ❤️ by TheHolyOneZ</strong></p>
 </div>
 
-****
