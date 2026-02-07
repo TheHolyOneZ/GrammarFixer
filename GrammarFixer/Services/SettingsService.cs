@@ -88,10 +88,11 @@ namespace GrammarFixer.Services
                 
                 var settingsToSave = new AppSettings
                 {
-                    ApiKey = apiKeyToSave,
+                    ApiKey = apiKeyToSave ?? string.Empty,
                     InputSource = settings.InputSource,
                     Mode = settings.Mode,
                     Persona = settings.Persona,
+                    SelectedPersonaName = settings.SelectedPersonaName,
                     MinimizeToTray = settings.MinimizeToTray,
                     ShowNotifications = settings.ShowNotifications,
                     PlaySound = settings.PlaySound,
@@ -99,16 +100,25 @@ namespace GrammarFixer.Services
                     KeepHistory = settings.KeepHistory,
                     StartWithWindows = settings.StartWithWindows,
                     StartMinimized = settings.StartMinimized,
+                    IsInSmallMode = settings.IsInSmallMode,
                     FixCount = settings.FixCount,
                     LastFixTime = settings.LastFixTime,
                     ProcessingSpeed = settings.ProcessingSpeed,
                     AnimationSpeed = settings.AnimationSpeed,
                     WindowOpacity = settings.WindowOpacity,
+                    WindowHeight = settings.WindowHeight,
+                    WindowWidth = settings.WindowWidth,
                     HotkeyModifiers = settings.HotkeyModifiers,
                     HotkeyKey = settings.HotkeyKey,
                     HotkeyDisplay = settings.HotkeyDisplay,
                     TokenPricePerMillion = settings.TokenPricePerMillion,
-                    TokenUsageHistory = settings.TokenUsageHistory
+                    TokenUsageHistory = settings.TokenUsageHistory,
+                    Language = settings.Language,
+                    Languages = settings.Languages,
+                    TranslateToSelectedLanguage = settings.TranslateToSelectedLanguage,
+                    CustomPersonas = settings.CustomPersonas,
+                    SelectedModel = settings.SelectedModel,
+                    ShowDebugWindow = settings.ShowDebugWindow
                 };
                 
                 var options = new JsonSerializerOptions

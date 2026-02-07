@@ -19,9 +19,9 @@ namespace GrammarFixer.Services
             };
         }
 
-        public async Task<(string fixedText, int inputTokens, int outputTokens)> FixTextAsync(string text, string apiKey, Persona persona, ProcessingSpeed speed)
+        public async Task<(string fixedText, int inputTokens, int outputTokens)> FixTextAsync(string text, string apiKey, string personaInstruction, ProcessingSpeed speed, string language, bool translateToSelectedLanguage, string selectedModel)
         {
-            string prompt = GetPromptForPersona(text, persona, speed);
+            string prompt = GetPromptForPersona(text, personaInstruction, speed, language, translateToSelectedLanguage);
 
             var requestBody = new
             {
@@ -44,7 +44,8 @@ namespace GrammarFixer.Services
                 }
             };
 
-            string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key={apiKey}";
+            string url = $"https://generativelanguage.googleapis.com/v1beta/models/{selectedModel}:generateContent?key={apiKey}";
+            DebugLogService.Log($"API Request URL: {url}");
 
             var content = new StringContent(
                 JsonSerializer.Serialize(requestBody),
@@ -54,6 +55,7 @@ namespace GrammarFixer.Services
 
             var response = await _httpClient.PostAsync(url, content);
             var responseText = await response.Content.ReadAsStringAsync();
+            DebugLogService.Log($"API Response JSON: {responseText}");
 
             if (!response.IsSuccessStatusCode)
             {
@@ -94,7 +96,7 @@ namespace GrammarFixer.Services
             }
         }
 
-        private string GetPromptForPersona(string text, Persona persona, ProcessingSpeed speed)
+        private string GetPromptForPersona(string text, string personaInstruction, ProcessingSpeed speed, string language, bool translateToSelectedLanguage)
         {
             string speedInstruction = speed switch
             {
@@ -104,17 +106,33 @@ namespace GrammarFixer.Services
                 _ => "Fix all errors thoroughly."
             };
 
+            string languageInstruction = translateToSelectedLanguage
+                ? $"Translate the following text to {language}. IMPORTANT: If {language} is not a real or valid language, output EXACTLY this message and nothing else: 'TheHolyOneZ: Whoa there! {language}? Last I checked, that’s only spoken by unicorns and coffee machines....'. Otherwise, translate and rewrite it to fix all grammar, spelling, and punctuation errors"
+                : "Detect the language of the following text, and then rewrite it in the same language to fix all grammar, spelling, and punctuation errors";
+
+            
+            string combinedInstruction;
+            if (translateToSelectedLanguage)
+            {
+                combinedInstruction = $"{languageInstruction}, and APPLY THE FOLLOWING STYLE: {personaInstruction} {speedInstruction}";
+            }
+            else
+            {
+                combinedInstruction = $"IMPORTANT: First, detect the language of the input text (let's call it 'L'). Then, rewrite the text strictly in 'L' to fix all grammar, spelling, and punctuation errors. CRITICAL: Do NOT translate to English. Your entire response must be in 'L'. While rewriting, you must adopt a specific persona. Here is the persona description (in English): '{personaInstruction}'. You are to INTERPRET this persona and apply its stylistic and tonal qualities NATURALLY and IDIOMATICALLY in language 'L'. It is essential that the persona feels native to 'L'. {speedInstruction}";
+            }
+
+            return $"{combinedInstruction} Only return the corrected text, nothing else:\n\n{text}";
+        }
+
+        public static string GetInstructionForPersona(Persona persona)
+        {
             return persona switch
             {
-                Persona.Friendly => $"Rewrite this text to fix all grammar, spelling, and punctuation errors while making it warm, friendly, and conversational. {speedInstruction} Only return the corrected text, nothing else:\n\n{text}",
-                
-                Persona.Professional => $"Rewrite this text to fix all grammar, spelling, and punctuation errors while making it formal, professional, and polished. {speedInstruction} Only return the corrected text, nothing else:\n\n{text}",
-                
-                Persona.Concise => $"Rewrite this text to fix all grammar, spelling, and punctuation errors while making it brief, direct, and concise. Remove unnecessary words. {speedInstruction} Only return the corrected text, nothing else:\n\n{text}",
-                
-                Persona.Creative => $"Rewrite this text to fix all grammar, spelling, and punctuation errors while making it expressive, engaging, and dynamic. {speedInstruction} Only return the corrected text, nothing else:\n\n{text}",
-                
-                _ => $"Fix all grammar, spelling, and punctuation errors in this text. Maintain the original tone and style. {speedInstruction} Only return the corrected text, nothing else:\n\n{text}"
+                Persona.Friendly => "while making it warm, friendly, and conversational.",
+                Persona.Professional => "while making it formal, professional, and polished.",
+                Persona.Concise => "while making it brief, direct, and concise. Remove unnecessary words.",
+                Persona.Creative => "while making it expressive, engaging, and dynamic.",
+                _ => "while maintaining the original tone and style."
             };
         }
 

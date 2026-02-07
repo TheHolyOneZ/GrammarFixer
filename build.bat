@@ -1,6 +1,6 @@
 @echo off
 echo ================================
-echo Grammar Fixer - Build Script
+echo Grammar Fixer - Build Script / TheHolyOneZ
 echo ================================
 echo.
 

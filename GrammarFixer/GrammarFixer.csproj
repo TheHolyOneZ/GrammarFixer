@@ -8,7 +8,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
     <AssemblyName>GrammarFixer</AssemblyName>
-    <Version>1.0.1</Version>
+    <Version>1.5.1</Version>
     <Authors>TheHolzOneZ</Authors>
     <Company>TheHolzOneZ</Company>
     <Product>Grammar Fixer</Product>
