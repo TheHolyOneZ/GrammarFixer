@@ -4,7 +4,7 @@
   <p><strong>An intelligent, AI-powered grammar correction tool for Windows that fixes your text with a simple hotkey. Powered by Google Gemini AI.</strong></p>
   
   <p>
-    <img src="https://img.shields.io/badge/version-1.5.1-blue.svg" alt="Version"/>
+    <img src="https://img.shields.io/badge/version-1.5.2-blue.svg" alt="Version"/>
     <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"/>
     <img src="https://img.shields.io/badge/.NET-8.0-purple.svg" alt=".NET"/>
     <img src="https://img.shields.io/badge/platform-Windows-lightgrey.svg" alt="Platform"/>
