@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.5.2] - 2026-02-15
+
+### Fixed
+- **Application Shutdown**: Fixed a bug where the application would continue running in the background after being closed with the 'X' button. The application now closes properly.
+- **Startup Behavior**: Resolved an issue where the application would not start minimized to the system tray correctly when the "Start with Windows" and "Start minimized" options were enabled.
+- **Language Preference**: Fixed a critical bug where the selected language was not being used for grammar correction, causing the application to default to language auto-detection and produce incorrect output.
+
 ## [v1.5.1] - 2026-02-07
 
 ### Added

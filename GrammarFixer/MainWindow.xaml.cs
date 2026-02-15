@@ -31,6 +31,7 @@ namespace GrammarFixer
                 private bool _isApiKeyVisible = false;
                 private bool _isSmallMode = false;
                 private DebugWindow? _debugWindow;
+                private bool _isExplicitlyClosing = false;
                 
                 public MainWindow()
                 {
@@ -113,23 +114,31 @@ namespace GrammarFixer
                     }
                 }
         
-                private void MainWindow_Loaded(object sender, RoutedEventArgs e)
-                {
-                    var hwnd = new WindowInteropHelper(this).Handle;
-                    var settings = _settingsService.LoadSettings();
-                    _hotkeyService.Initialize(hwnd, OnHotkeyPressed);
-                    _hotkeyService.UpdateHotkey(settings.HotkeyModifiers, settings.HotkeyKey);
-                    
-                    InitializeSystemTray();
-                    LoadSettings();
-                    UpdateViewForSizeMode();
-                    
-                    Dispatcher.BeginInvoke(new Action(() =>
-                    {
-                        _isInitializing = false;
-                    }), System.Windows.Threading.DispatcherPriority.ContextIdle);
-                }
-        
+                        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+                        {
+                            var hwnd = new WindowInteropHelper(this).Handle;
+                            var settings = _settingsService.LoadSettings();
+                            _hotkeyService.Initialize(hwnd, OnHotkeyPressed);
+                            _hotkeyService.UpdateHotkey(settings.HotkeyModifiers, settings.HotkeyKey);
+                            
+                            InitializeSystemTray();
+                            LoadSettings();
+                            UpdateViewForSizeMode();
+                            
+                            Dispatcher.BeginInvoke(new Action(() =>
+                            {
+                                _isInitializing = false;
+                            }), System.Windows.Threading.DispatcherPriority.ContextIdle);
+                
+                            if (WindowState == WindowState.Minimized && MinToTrayCheck.IsChecked == true)
+                            {
+                                Hide();
+                                if (_notifyIcon != null) 
+                                {
+                                    _notifyIcon.Visible = true;
+                                }
+                            }
+                        }        
                 private void MainWindow_StateChanged(object? sender, EventArgs e)
                 {
                     if (WindowState == WindowState.Minimized && MinToTrayCheck.IsChecked == true)
@@ -150,15 +159,26 @@ namespace GrammarFixer
                     }
                 }
         
-                private void MainWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
-                {      
-                    AutoSaveSettings();      
-                    _hotkeyService.Cleanup();
-                    _notifyIcon?.Dispose();
-                    _soundPlayer?.Dispose();
-                    _debugWindow?.Close();
-                }
-        
+                        private void MainWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
+                        {
+                            if (MinToTrayCheck.IsChecked == true && !_isExplicitlyClosing)
+                            {
+                                e.Cancel = true;
+                                Hide();
+                                if (_notifyIcon != null)
+                                {
+                                    _notifyIcon.Visible = true;
+                                }
+                                return;
+                            }
+                
+                            AutoSaveSettings();      
+                            _hotkeyService.Cleanup();
+                            _notifyIcon?.Dispose();
+                            _soundPlayer?.Dispose();
+                            _debugWindow?.Close();
+                            Application.Current.Shutdown();
+                        }        
                 private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
                 {
                     if (e.ChangedButton == MouseButton.Left)
@@ -759,7 +779,11 @@ namespace GrammarFixer
                         Activate();
                     });
                     contextMenu.Items.Add("-");
-                    contextMenu.Items.Add("Exit", null, (s, e) => Close());
+                    contextMenu.Items.Add("Exit", null, (s, e) => 
+                    {
+                        _isExplicitlyClosing = true;
+                        Close();
+                    });
                     
                     _notifyIcon.ContextMenuStrip = contextMenu;
                 }

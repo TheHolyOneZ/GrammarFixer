@@ -118,7 +118,7 @@ namespace GrammarFixer.Services
             }
             else
             {
-                combinedInstruction = $"IMPORTANT: First, detect the language of the input text (let's call it 'L'). Then, rewrite the text strictly in 'L' to fix all grammar, spelling, and punctuation errors. CRITICAL: Do NOT translate to English. Your entire response must be in 'L'. While rewriting, you must adopt a specific persona. Here is the persona description (in English): '{personaInstruction}'. You are to INTERPRET this persona and apply its stylistic and tonal qualities NATURALLY and IDIOMATICALLY in language 'L'. It is essential that the persona feels native to 'L'. {speedInstruction}";
+                combinedInstruction = $"IMPORTANT: Rewrite the text strictly in {language} to fix all grammar, spelling, and punctuation errors. CRITICAL: Do NOT translate. Your entire response must be in {language}. While rewriting, you must adopt a specific persona. Here is the persona description (in English): '{personaInstruction}'. You are to INTERPRET this persona and apply its stylistic and tonal qualities NATURALLY and IDIOMATICALLY in {language}. It is essential that the persona feels native to {language}. {speedInstruction}";
             }
 
             return $"{combinedInstruction} Only return the corrected text, nothing else:\n\n{text}";

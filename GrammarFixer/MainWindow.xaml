@@ -1,7 +1,7 @@
 <Window x:Class="GrammarFixer.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Grammar Fixer v1.5.1" 
+        Title="Grammar Fixer v1.5.2" 
         Height="900" 
         Width="500"
         MinWidth="450"
@@ -43,7 +43,7 @@
                 <Grid>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="20,0">
                         <Ellipse Width="10" Height="10" Fill="#64C8FA" Margin="0,0,10,0"/>
-                        <TextBlock Text="Grammar Fixer v1.5.1" 
+                        <TextBlock Text="Grammar Fixer v1.5.2" 
                                  Foreground="White" 
                                  FontSize="16" 
                                  FontWeight="SemiBold"
@@ -499,7 +499,7 @@
                                         Click="ClearHistoryButton_Click"/>
 
                                     <TextBlock Text="ℹ️ About" Foreground="#64C8FA" FontSize="14" FontWeight="SemiBold" Margin="0,20,0,12"/>
-                                    <TextBlock Text="Grammar Fixer v1.5.1" Foreground="#B4B4BE" FontSize="12" Margin="0,0,0,4"/>
+                                    <TextBlock Text="Grammar Fixer v1.5.2" Foreground="#B4B4BE" FontSize="12" Margin="0,0,0,4"/>
                                     <TextBlock Text="Powered by Gemini" Foreground="#969696" FontSize="11" Margin="0,0,0,4"/>
                                     <TextBlock Foreground="#696969" FontSize="10">
                                     <Run Text="© 2025 "/>
