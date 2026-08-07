@@ -1,6 +1,36 @@
+> [!IMPORTANT]
+> ## This project is no longer maintained — use [**ZyntaxAI**](https://zsync.eu/zyntaxai/) instead
+>
+> Grammar Fixer has been **completely rebuilt** as **[ZyntaxAI](https://zsync.eu/zyntaxai/)**. It is not a
+> port — it was written from scratch in Rust and TypeScript, and it does everything this did, better.
+> Nothing here will receive fixes or new features.
+>
+> | | Grammar Fixer (this) | [ZyntaxAI](https://zsync.eu/zyntaxai/) |
+> |---|---|---|
+> | **Platforms** | Windows only | **Windows, Linux and macOS** |
+> | **AI provider** | Gemini, hardcoded | **Gemini, any OpenAI-compatible endpoint, or local Ollama** |
+> | **Works offline** | No | **Yes — with Ollama, your text never leaves the machine** |
+> | **Before it edits your text** | Applied blind | **A word-level diff you approve first** |
+> | **Writing styles** | 5 personas | 5 personas **plus your own** |
+> | **Languages** | Target language | 13 built-in **plus your own**, with optional translation |
+> | **Cost tracking** | One blended rate | **Per model, input and output priced separately** |
+> | **API key storage** | Encrypted file | **Your OS keychain** |
+> | **Updates** | Manual download | **Signed in-app updates** |
+> | **Interface** | Single window | Tray, correction overlay, and a redesigned settings window |
+> | **Licence** | MIT | GPL-3.0-or-later |
+>
+> It also fixes real bugs that were never solved here — corrections silently truncated past ~350
+> words, the selected language sometimes dropped from the request, under-reported costs, and a
+> clipboard that got destroyed when used as scratch space.
+>
+> ### → [**Download ZyntaxAI**](https://zsync.eu/zyntaxai/) · [Source on GitHub](https://github.com/TheHolyOneZ/ZyntaxAI)
+>
+> Everything below describes the old Windows-only version and is kept for reference only.
+
 <div align="center">
   <img src="https://raw.githubusercontent.com/TheHolyOneZ/GrammarFixer/main/images/icon.png" alt="Grammar Fixer Logo" width="150"/>
   <h1>Grammar Fixer</h1>
+  <p><em>Unmaintained — see <a href="https://zsync.eu/zyntaxai/">ZyntaxAI</a></em></p>
   <p><strong>An intelligent, AI-powered grammar correction tool for Windows that fixes your text with a simple hotkey. Powered by Google Gemini AI.</strong></p>
   
   <p>
